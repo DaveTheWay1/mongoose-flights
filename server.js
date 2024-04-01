@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 require('dotenv').config();
-require('./config/database');
+require('./config/database'); // this MUST come after the require of dotenv
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
