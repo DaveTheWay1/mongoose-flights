@@ -17,7 +17,7 @@
     <input type="datetime-local" id="meeting-time" name="arrival" value="2025-01-04T19:30" min="2025-06-07T00:00" max="2026-06-14T00:00" />
     <input type="submit" value="Add Destination">
 </form>
-<h3>Flights And Arrivals</h3>
+<h2>Flights And Arrivals</h2>
 <% if (flight.destinations.length) { %>
     <% flight.destinations.forEach(function(d){ %>
         <p> Airport: <%= d.airport %> </p>
@@ -25,4 +25,15 @@
     <% }) %>
 <% } else {%>
     <p>No listed departures</p>
+<% } %>
+<h2>Tickets</h2>
+<a href="/flights/<%=flight.id%>/tickets/">Add Tickets</a>
+<% if (flight.tickets.length) { %>
+    <% flight.tickets.forEach(function(t){ %>
+        <p> Ticket Seat: <%= t.seat %> </p>
+        <p> Ticket Price: <%= t.price %></p>
+        <p> Ticket id: <%= t.flight %></p>
+    <% }) %>
+<% } else {%>
+    <p>No listed tickets</p>
 <% } %>
