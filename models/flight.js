@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ticketSchema = require('../models/ticket').schema;
+
 
 const destinationSchema = new Schema({
     airport:{type:String, enum:['AUS', 'DFW', 'DEN', 'LAX', 'SAN']},
@@ -15,7 +15,6 @@ const flightScehma = new Schema({
         default: function () {
             return new Date().getFullYear() + 1;
         }},
-    destinations:[destinationSchema],
-    tickets:[ticketSchema]
+    destinations:[destinationSchema]
 }, {timestamps:true});
 module.exports = mongoose.model('Flight', flightScehma);
