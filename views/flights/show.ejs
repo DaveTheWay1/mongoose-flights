@@ -27,12 +27,16 @@
     <p>No listed departures</p>
 <% } %>
 <h2>Tickets</h2>
-<a href="/flights/<%=flight.id%>/tickets/">Add Tickets</a>
-<% if (flight.tickets.length) { %>
-    <% flight.tickets.forEach(function(t){ %>
+<a href="/tickets/<%= flight.id %>/new">Add Tickets</a>
+<% if (tickets.length) { %>
+    <% tickets.forEach(function(t){ %>
         <p> Ticket Seat: <%= t.seat %> </p>
         <p> Ticket Price: <%= t.price %></p>
         <p> Ticket id: <%= t.flight %></p>
+        <p><%= t.id %></p>
+        <form action="/tickets/<%= t.id %>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE">
+        </form>
     <% }) %>
 <% } else {%>
     <p>No listed tickets</p>
