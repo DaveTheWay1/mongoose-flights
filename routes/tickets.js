@@ -4,8 +4,9 @@ const router = express.Router()
 const ticketCtrl = require('../controllers/tickets');
 
 
-router.post('/flights/:id/tickets', ticketCtrl.addTicket);
-router.get('/flights/:id/tickets', ticketCtrl.new);
+router.get('/tickets/:id/new', ticketCtrl.new);
+router.post('/tickets/add', ticketCtrl.addNewTicket);
+router.delete('/tickets/:id', ticketCtrl.delete)
 
 
 module.exports = router;
