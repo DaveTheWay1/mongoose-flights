@@ -1,43 +1,56 @@
 <%- include('../partials/header') %>
 <h1>Flight Number: <%= flight.flightNo %> </h1>
-<p> Airline: <%= flight.airline %> </p>
-<p> Airport: <%= flight.airport %> </p>
-<p> Departs: <%= flight.departs %> </p>
-<h2>Add Destination</h2>
-<form action="/flights/<%= flight.id %>/destinations" method = "POST">
-    <label>Airport</label>
-    <select name="airport">
-        <option value="AUS">AUS</option>
-        <option value="DFW">DFW</option>
-        <option value="DEN">DEN</option>
-        <option value="LAX">LAX</option>
-        <option value="SAN">SAN</option>
-    </select>
-    <label>Arrival:</label>
-    <input type="datetime-local" id="meeting-time" name="arrival" value="2025-01-04T19:30" min="2025-06-07T00:00" max="2026-06-14T00:00" />
-    <input type="submit" value="Add Destination">
-</form>
-<h2>Flights And Arrivals</h2>
-<% if (flight.destinations.length) { %>
-    <% flight.destinations.forEach(function(d){ %>
-        <p> Airport: <%= d.airport %> </p>
-        <p> Departs: <%= d.arrival %> </p>
-    <% }) %>
-<% } else {%>
-    <p>No listed departures</p>
-<% } %>
-<h2>Tickets</h2>
-<a href="/tickets/<%= flight.id %>/new">Add Tickets</a>
-<% if (tickets.length) { %>
-    <% tickets.forEach(function(t){ %>
-        <p> Ticket Seat: <%= t.seat %> </p>
-        <p> Ticket Price: <%= t.price %></p>
-        <p> Ticket id: <%= t.flight %></p>
-        <p><%= t.id %></p>
-        <form action="/tickets/<%= t.id %>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE">
-        </form>
-    <% }) %>
-<% } else {%>
-    <p>No listed tickets</p>
-<% } %>
+<div id="flight-details">
+    <h2>Flight Details</h2>
+    <p> Airline: <%= flight.airline %> </p>
+    <p> Airport: <%= flight.airport %> </p>
+    <p> Departs: <%= flight.departs %> </p>
+</div>
+<div id="add-destination">
+    <h2>Add Destination</h2>
+    <form action="/flights/<%= flight.id %>/destinations" method = "POST">
+        <label>Airport</label>
+        <select name="airport">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+        <label>Arrival:</label>
+        <input type="datetime-local" id="meeting-time" name="arrival" value="2025-01-04T19:30" min="2025-06-07T00:00" max="2026-06-14T00:00" />
+        <input type="submit" value="Add Destination">
+    </form>
+</div>
+<div id="flight-arrivals">
+    <h2>Flights And Arrivals</h2>
+    <% if (flight.destinations.length) { %>
+        <% flight.destinations.forEach(function(d){ %>
+            <p> Airport: <%= d.airport %> </p>
+            <p> Departs: <%= d.arrival %> </p>
+        <% }) %>
+    <% } else {%>
+        <p>No listed departures</p>
+    <% } %>
+</div>
+<div id="tickets">
+    <h2>Tickets</h2>
+    <a href="/tickets/<%= flight.id %>/new">Add Tickets</a>
+    <% if (tickets.length) { %>
+        <% tickets.forEach(function(t){ %>
+            <div id="ticket-display">
+                <p class="label">TICKET Seat: </p>
+                    <p><%= t.seat %> </p>
+                <p class="label">Ticket Price:</p>
+                    <p><%= t.price %></p>
+                <p class="label">Ticket id:</p>
+                    <p><%= t.flight %></p>
+                <form action="/tickets/<%= t.id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE">
+                </form>
+            </div>
+            <% }) %>
+        <% } else {%>
+            <p>No listed tickets</p>
+        <% } %>
+</div>

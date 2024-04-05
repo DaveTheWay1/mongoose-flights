@@ -1,8 +1,73 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightgray;
 }
-
 a {
   color: #00B7FF;
+}
+
+nav{
+  display:flex;
+  justify-content: space-evenly;
+  position: relative;
+  bottom: 30px;
+}
+h1, #flight-number{
+  text-align: center;
+}
+.label {
+  font-weight: bold;
+}
+
+#index-flights{
+  border: solid white 3px;
+  padding: 15px;
+  margin: 15px;
+}
+
+img[alt='airplane']{
+  width: 100px;
+  position: relative;
+  right: 15px;
+  top: 40px;
+}
+
+#new-flight{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid white 10px;
+}
+
+.form-input{
+  margin: 70px;
+}
+
+#flight-submit{
+  position: absolute;
+  right: 15;
+  bottom: 10px;
+}
+
+#details{
+  position: relative;
+  left: 680px;
+  bottom: 15px;
+}
+
+#flight-details, #flight-arrivals, #add-destination, #tickets{
+  border: solid white 10px;
+  margin: 15px;
+  padding: 10px;
+}
+
+label{
+  font-weight: bold;
+}
+
+#ticket-display{
+  /* border-top: solid white 5px ; */
+  border-bottom: solid white 5px;
 }

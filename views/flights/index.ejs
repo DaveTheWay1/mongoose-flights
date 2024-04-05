@@ -1,9 +1,12 @@
 <%- include('../partials/header') %>
 <h1>Flights</h1>
 <% flights.forEach(function(flight){ %>
-    <p>Airline: <%=flight.airline %></p>
-    <p>Airport: <%=flight.airport %></p>
-    <p>Flight Number: <%=flight.flightNo %></p>
-    <p>Departs: <%= flight.departs  %> </p>
-    <a href="/flights/<%= flight._id %>">Details</a>
+    <div id="index-flights">
+        <h3 id="flight-number">Flight Number: <%=flight.flightNo%></h3>
+        <p><span class="label">Airline:</span> <%=flight.airline%></p>
+        <p><span class="label">Airport:</span> <%=flight.airport%></p>
+        <p><span class="label">Number:</span> <%=flight.flightNo%></p>
+        <p><span class="label">Departs:</span> <%= flight.departs%> </p>
+        <a id="details" href="/flights/<%= flight._id %>">Details</a>
+    </div>
 <%})%>

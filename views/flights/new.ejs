@@ -1,22 +1,31 @@
 <%- include('../partials/header') %>
-<form action="/flights" method="POST">
-    <label>Airline:</label>
-    <select name="airline">
-        <option value="American">American</option>
-        <option value="Southwest">Southwest</option>
-        <option value="United">United</option>
-    </select>
-    <label>Airport:</label>
-    <select name="airport">
-        <option value="AUS">AUS</option>
-        <option value="DFW">DFW</option>
-        <option value="DEN">DEN</option>
-        <option value="LAX">LAX</option>
-        <option value="SAN">SAN</option>
-    </select>
-    <label>Flight Number:</label>
-    <input type="number" name="flightNo">
-    <label>Departure</label>
-    <input type="datetime-local" id="meeting-time" name="departs" value="2025-01-04T19:30" min="2025-06-07T00:00" max="2026-06-14T00:00" />
-    <input type="submit">
+<h1>New Flight</h1>
+<form id="new-flight" action="/flights" method="POST">
+    <div class="form-input">
+        <label>Airline:</label> <br>
+        <select name="airline">
+            <option value="American">American</option>
+            <option value="Southwest">Southwest</option>
+            <option value="United">United</option>
+        </select>
+    </div>
+    <div class="form-input">
+        <label>Airport:</label><br>
+        <select name="airport">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+    </div>
+    <div class="form-input">
+        <label>Flight Number:</label><br>
+        <input type="number" name="flightNo">
+    </div>
+    <div class="form-input">
+        <label>Departure</label><br>
+        <input type="datetime-local" id="meeting-time" name="departs" value="2025-01-04T19:30" min="2025-06-07T00:00" max="2026-06-14T00:00" />
+    </div>
+    <input id="flight-submit" type="submit">
 </form>
